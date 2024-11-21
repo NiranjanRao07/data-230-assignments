@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="{{ url_for('index')}}">FlaskBlog</a>
+      <!-- ... (navbar code) ... -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('create') }}">New Post</a>
+      </li>
+    </nav>
+    <div class="container">
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+      {% block content %} {% endblock %}
+    </div>
+    <!-- ... (Bootstrap JavaScript links) ... -->
+  </body>
+</html>
